@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
@@ -10,13 +10,10 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-/**
- * An example command.  You can replace me with your own command.
- */
-public class ExampleCommand extends Command {
-  public ExampleCommand() {
+public class DriveCommand extends Command {
+  public DriveCommand() {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.mecanumDrive);
+    // eg. requires(chassis);
   }
 
   // Called just before this Command runs the first time
@@ -27,9 +24,8 @@ public class ExampleCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-
+    Robot.mecanumDrive.driveWithJoystick();
   }
-
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
@@ -46,5 +42,6 @@ public class ExampleCommand extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.mecanumDrive.stop();
   }
 }
