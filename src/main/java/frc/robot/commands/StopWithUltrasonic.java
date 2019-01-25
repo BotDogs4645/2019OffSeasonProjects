@@ -21,12 +21,12 @@ public class StopWithUltrasonic extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        Robot.motorob.goForward();
 
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.motorob.goForward();
         //SmartDashboard.getNumber("ultrasonic sensor", Robot.ultrasonicob.getDistance());
         System.out.println(Robot.ultrasonicob.getDistance());
     	
@@ -34,12 +34,13 @@ public class StopWithUltrasonic extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (35 <= Robot.ultrasonicob.getDistance());
+        return ( 30 >= Robot.ultrasonicob.getDistance());
         
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        Robot.motorob.stopMotor();
     }
 
     // Called when another command which requires one or more of the same

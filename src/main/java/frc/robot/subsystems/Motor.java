@@ -1,7 +1,5 @@
 package frc.robot.subsystems;
 
-
-
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Talon;
@@ -25,5 +23,9 @@ public class Motor extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         setDefaultCommand(new StopWithUltrasonic());
+    }
+    public void stopMotor()
+    {
+        basicMotor.set(0.0);
     }
 }
