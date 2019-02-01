@@ -12,6 +12,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import frc.robot.commands.ExampleCommand;
+import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Gryo;
+
 import frc.robot.commands.DriveCommand;
 import frc.robot.subsystems.MecanumDriveTrain;
 
@@ -25,9 +30,15 @@ import frc.robot.subsystems.MecanumDriveTrain;
  * project.
  */
 public class Robot extends TimedRobot {
+
+  public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
+  public static Gryo gyroSub = new Gryo();
+  public static OI m_oi;
+
   
   public static MecanumDriveTrain mecanumDriveSubsystem = new MecanumDriveTrain();
   public static OI oi;
+
 
   Command m_autonomousCommand;
   Command driveCommand;
